@@ -52,11 +52,6 @@ function outputHandler(difference,totalBuyPrice){
 //click event
 function clickEventHandler() {
     calculate(buyPrice.value,quantity.value);
-    // fetch(getTranslationURL(inputText))
-    //     .then(response => response.json())
-    //     .then(json => {outputDiv.innerText=json.contents.translated
-    //     })
-    //     .catch(errorHandler)
 };
 
 btnCheck.addEventListener("click", clickEventHandler)
