@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profit-Loss Calculator</title>
+    <link href="/style.css" rel="stylesheet" />
+
+    <!-- <link rel="icon" href="/images/favicon-minion.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/images/favicon-minion.png" type="image/x-icon"/>
+
+    <meta property="og:url"                content="https://aminiontranslator.netlify.app/" />
+    <meta property="og:type"               content="translator" />
+    <meta property="og:title"              content="Minion Language Translator" />
+    <meta property="og:description"        content="A fun web app to translate from English to Minion Language" />
+    <meta property="og:image"              content="https://i.imgur.com/j8eZPi7.png" />
+    <meta name="description"               content="A fun web app to translate from English to Minion Language">  -->
+
+</head>
+<body>
+    <main class="body-container">
+        <h1>Profit-Loss Calculator</h1>
+        <h2>Select stock</h2>
+        <select name="stock-option" id="stock-option">
+            <option value="amd">Advanced Micro Devices - AMD</option>
+            <option value="intel">Intel - INTC</option>
+            <option value="nvidia">Nvidia - NVDA</option>
+        </select>
+        <h2>Enter buy price</h2>
+        <input placeholder="Buy price" id="input-buyprice" />
+        <h2>Enter quantity</h2>
+        <input placeholder="No. of stocks" id="input-quantity" />
+        <br />
+        <br />
+        <button id="btn-check">Check</button>
+        <hr />
+        <div id="div-output">
+            <h2>Profit/Loss</h2>
+            <p id="difference">---</p>
+            <h2>Percentage Profit/Loss</h2>
+            <p id="percentage">---</p>
+        </div>
+        
+
+
+    </main>
+   
+
+    <script src="app.js" type="text/javascript"></script>
+</body>
+</html>
