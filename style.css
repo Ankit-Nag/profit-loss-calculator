@@ -1,22 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500&display=swap');
 
-body{
-    font-family: 'Montserrat',sans-serif;
+:root {
+    --deep-blue: #05386B;
+    --pastel-blue: #0082B0;
+    --spring-green: #5CDB95;
+    --transparent-green: rgba(92, 219, 149, 0.6);
+    --translucent-green: rgba(92, 219, 149, 0.8);
+    --darker-green: #379683;
+    --lighter-green: #8EE4AF;
+    --white: #EDF5E1;
+    --red: #FC4445;
+    --black: #101010;
 }
 
-.body-container{
+::placeholder {
+    color: var(--darker-green);
+    text-align: center;
+}
+
+hr {
+    border: solid 1px var(--black);
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--darker-green);
+    color: var(--black);
+    background-image: url("/images/stocks-background.jpg");
+    background-attachment: fixed;
+}
+
+.body-container {
+    text-align: center;
     max-width: 60vw;
     margin: auto;
-    padding: 1rem;
+    padding: 1.5rem;
+    background-color: var(--transparent-green);
+    backdrop-filter: blur(5px);
+    border-radius: 1rem;
+    box-shadow: 2px 2px 5px var(--black);
+    transition: background-color 300ms, box-shadow 300ms ease-in-out;
+    filter: blur(10);
 }
 
-h1{
-    font-family: 'Staatliches', cursive;
-    font-size: xxx-large;
+.body-container:hover {
+    background-color: var(--translucent-green);
+    box-shadow: 5px 5px 10px var(--black);
+    transition: background-color 300ms, box-shadow 300ms ease-in-out;
+}
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    color: var(--deep-blue);
     text-align: center;
     margin: auto;
 }
 
-input{
-    width: 20vw;
+input {
+    font-family: 'Montserrat', sans-serif;
+    min-width: 25vw;
+    max-width: 30vw;
+    border: none;
+    border-bottom: solid 2px var(--deep-blue);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    background-color: var(--white);
+    transition: border 250ms, background-color 250ms, box-shadow 250ms ease-in-out;
+}
+
+input:focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    border-bottom: solid 2px var(--pastel-blue);
+    border-radius: 0.25rem;
+    box-shadow: 0px 0px 10px var(--darker-green) inset;
+    transition: border 250ms, background-color 250ms, box-shadow 250ms ease-in-out;
+}
+
+#stock-option {
+    font-family: 'Montserrat', sans-serif;
+    border: none;
+    border-bottom: solid 2px var(--deep-blue);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+    background-color: var(--white);
+    transition: background-color 250ms, box-shadow 250ms;
+}
+
+option {
+    background-color: var(--white);
+    color: var(--black);
+}
+
+#stock-option:focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    border-bottom: solid 2px var(--pastel-blue);
+    border-radius: 0.25rem;
+    box-shadow: 0px 0px 10px var(--darker-green) inset;
+    transition: background-color 250ms, box-shadow 250ms ease-in-out;
+}
+
+#stock-option:hover {
+    box-shadow: 0px 0px 5px var(--darker-green) inset;
+    transition: background-color 250ms, box-shadow 250ms;
+}
+
+#btn-check {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    background-color: var(--deep-blue);
+    color: var(--white);
+    padding: 0.5rem;
+    min-width: 15vw;
+    border: solid 2px var(--black);
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 2px var(--black);
+    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+}
+
+#btn-check:hover {
+    box-shadow: 2px 2px 5px var(--black);
+    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+}
+
+#btn-check:focus {
+    outline-style: none;
+    box-shadow: 2px 2px 7px var(--black);
+    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+}
+
+#btn-check:active {
+    background-color: var(--pastel-blue);
+    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+}
+
+.output {
+    background-color: var(--white);
+    max-width: 25vw;
+    border-bottom: solid 2px var(--deep-blue);
+    margin: auto;
+    border-radius: 0.25rem;
+    box-shadow: 1px 1px 5px var(--black);
+    padding: 0.5rem;
+    transition: border 250ms, box-shadow 250ms ease-in-out;
+}
+
+.output:hover {
+    border-bottom: solid 2px var(--pastel-blue);
+    border-radius: 0.25rem;
+    box-shadow: 2px 2px 5px var(--black);
+    transition: border 250ms, box-shadow 250ms ease-in-out;
 }

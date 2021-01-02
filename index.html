@@ -10,25 +10,25 @@
 <body>
     <main class="body-container">
         <h1>Profit-Loss Calculator</h1>
-        <h2>Select stock</h2>
+        <h3>Select stock</h3>
         <select name="stock-option" id="stock-option">
             <option value="amd">Advanced Micro Devices - AMD</option>
             <option value="intel">Intel - INTC</option>
             <option value="nvidia">Nvidia - NVDA</option>
         </select>
-        <h2>Enter buy price</h2>
-        <input placeholder="Buy price" id="input-buyprice" />
-        <h2>Enter quantity</h2>
-        <input placeholder="No. of stocks" id="input-quantity" />
+        <h3>Enter buy price</h3>
+        <input placeholder="Buy price" type="number" id="input-buyprice" />
+        <h3>Enter quantity</h3>
+        <input placeholder="No. of stocks" type="number"  id="input-quantity" />
         <br />
         <br />
         <button id="btn-check">Check</button>
         <hr />
         <div id="div-output">
-            <h2>Profit/Loss</h2>
-            <p id="difference">---</p>
-            <h2>Percentage Profit/Loss</h2>
-            <p id="percentage">---</p>
+            <h3>Profit/Loss</h3>
+            <p class="output" id="difference">---</p>
+            <h3>Percentage Profit/Loss</h3>
+            <p class="output" id="percentage">---</p>
         </div>
         
 

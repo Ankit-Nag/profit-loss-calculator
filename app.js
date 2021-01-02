@@ -37,15 +37,19 @@ function calculate(buyPrice,quantity){
 function outputHandler(difference,totalBuyPrice){
     var percentage = (difference/totalBuyPrice)*100;
     if(difference>0){
-        diffOutput.innerHTML= difference.toFixed(2) +" Profit";
-        percOutput.innerHTML= percentage.toFixed(2) +" Profit";
+        diffOutput.innerText= difference.toFixed(2) +" Profit";
+        percOutput.innerText= percentage.toFixed(2) +"% Profit";
+    }
+    else if(totalBuyPrice===0){
+        diffOutput.innerHTML= "Enter Buy Price and Quantity";
+        percOutput.innerHTML= "Enter Buy Price and Quantity";
     }
     else if(difference===0){
-        diffOutput.innerHTML="No profit, no loss";
+        diffOutput.innerText="No profit, no loss";
     }
     else{
-        diffOutput.innerHTML= Math.abs(difference.toFixed(2)) +" Loss";
-        percOutput.innerHTML= Math.abs(percentage.toFixed(2)) +" Loss ";
+        diffOutput.innerText= Math.abs(difference.toFixed(2)) +" Loss";
+        percOutput.innerText= Math.abs(percentage.toFixed(2)) +"% Loss ";
     }
 }
 
