@@ -1,4 +1,6 @@
 //setup the inputs and outputs
+
+// var bodyContainer = document.querySelector(".body-container");
 var buyPrice = document.querySelector("#input-buyprice");
 var quantity = document.querySelector("#input-quantity");
 var btnCheck = document.querySelector("#btn-check");
@@ -39,18 +41,29 @@ function outputHandler(difference,totalBuyPrice){
     if(difference>0){
         diffOutput.innerText= "$"+difference.toFixed(2) +" Profit";
         percOutput.innerText= percentage.toFixed(2) +"% Profit";
+        document.querySelector(".body-container").style.backgroundColor="var(--translucent-green)";
+        diffOutput.style.color="var(--darker-green)";
+        percOutput.style.color="var(--darker-green)";
     }
     else if(totalBuyPrice===0){
         diffOutput.innerHTML= "Enter Buy Price and Quantity";
         percOutput.innerHTML= "Enter Buy Price and Quantity";
+        document.querySelector(".body-container").style.backgroundColor="var(--pastel-blue)";
+        diffOutput.style.color="var(--deep-blue)";
+        percOutput.style.color="var(--deep-blue)";
     }
     else if(difference===0){
         diffOutput.innerText="No profit, no loss";
         percOutput.innerHTML= "0%";
+        diffOutput.style.color="var(--deep-blue)";
+        percOutput.style.color="var(--deep-blue)";
     }
     else{
         diffOutput.innerText= "$"+Math.abs(difference.toFixed(2)) +" Loss";
         percOutput.innerText= Math.abs(percentage.toFixed(2)) +"% Loss ";
+        diffOutput.style.color="var(--red)";
+        percOutput.style.color="var(--red)";
+        document.querySelector(".body-container").style.backgroundColor="var(--transparent-red)";
     }
 }
 

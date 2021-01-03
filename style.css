@@ -2,7 +2,7 @@
 
 :root {
     --deep-blue: #05386B;
-    --pastel-blue: #0082B0;
+    --pastel-blue: rgba(0,130,176,0.6);
     --spring-green: #5CDB95;
     --transparent-green: rgba(92, 219, 149, 0.6);
     --translucent-green: rgba(92, 219, 149, 0.8);
@@ -10,6 +10,7 @@
     --lighter-green: #8EE4AF;
     --white: #EDF5E1;
     --red: #FC4445;
+    --transparent-red: rgba(252,68,69,0.8);
     --black: #101010;
 }
 
@@ -28,6 +29,14 @@ body {
     color: var(--black);
     background-image: url("/images/stocks-background.jpg");
     background-attachment: fixed;
+}
+
+.img-header{
+    padding-top: 1rem;
+    max-width: 30vw;
+    text-align: center;
+    display: block;
+    margin: auto;
 }
 
 .body-container {
@@ -51,7 +60,7 @@ body {
 
 h1 {
     font-family: 'Bebas Neue', cursive;
-    color: var(--deep-blue);
+    color: var(--black);
     text-align: center;
     margin: auto;
 }
@@ -88,6 +97,8 @@ input:focus::placeholder{
 
 #stock-option {
     font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: var(--deep-blue);
     border: none;
     border-bottom: solid 2px var(--deep-blue);
     border-radius: 0.25rem;
@@ -97,8 +108,9 @@ input:focus::placeholder{
 }
 
 option {
-    background-color: var(--white);
-    color: var(--black);
+    background-color: var(--deep-blue);
+    color: var(--white);
+    font-weight: bold;
 }
 
 #stock-option:focus {
@@ -155,12 +167,12 @@ option {
     border-radius: 0.25rem;
     box-shadow: 1px 1px 5px var(--black);
     padding: 0.5rem;
-    transition: border 250ms, box-shadow 250ms ease-in-out;
+    transition: color 250ms, border 250ms, box-shadow 250ms ease-in-out;
 }
 
 .output:hover {
     border-bottom: solid 2px var(--pastel-blue);
     border-radius: 0.25rem;
-    box-shadow: 2px 2px 5px var(--black);
-    transition: border 250ms, box-shadow 250ms ease-in-out;
+    box-shadow: 2px 2px 5px var(--black);   
+    transition: color 250ms, border 250ms, box-shadow 250ms ease-in-out;
 }
