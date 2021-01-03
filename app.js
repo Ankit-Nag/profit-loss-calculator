@@ -7,6 +7,7 @@ var btnCheck = document.querySelector("#btn-check");
 var stockName = document.querySelector("#stock-option");
 var diffOutput = document.querySelector("#difference");
 var percOutput = document.querySelector("#percentage");
+var loading = document.querySelector("#btn-content");
 var amd = 91.71;
 var intel = 49.82;
 var nvidia = 522.20;
@@ -17,6 +18,16 @@ var nvidia = 522.20;
 //error handling
 function errorHandler(error){
     console.log("Error occured ",error)
+}
+
+function load(){
+    loading.style.border= "5px solid var(--white)";
+    loading.style.borderTop= "5px solid var(--deep-blue)";
+    loading.style.animation= "spin 1s linear infinite";
+}
+
+function complete(){
+    loading.style.border="5px solid var(--white)";
 }
 
 //calculate profit or loss
@@ -34,6 +45,10 @@ function calculate(buyPrice,quantity){
     }
     difference = currentPrice - totalBuyPrice;
     outputHandler(difference,totalBuyPrice);
+}
+
+function start(){
+    calculate(buyPrice.value,quantity.value)
 }
 
 function outputHandler(difference,totalBuyPrice){
@@ -69,7 +84,9 @@ function outputHandler(difference,totalBuyPrice){
 
 //click event
 function clickEventHandler() {
-    calculate(buyPrice.value,quantity.value);
+    load();
+    window.setTimeout(complete,700);
+    window.setTimeout(start,750);
 };
 
 btnCheck.addEventListener("click", clickEventHandler)

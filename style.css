@@ -99,6 +99,7 @@ input:focus::placeholder{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: var(--deep-blue);
+    max-width: 50vw;
     border: none;
     border-bottom: solid 2px var(--deep-blue);
     border-radius: 0.25rem;
@@ -156,6 +157,20 @@ option {
     background-color: var(--pastel-blue);
     transition: box-shadow 250ms, background-color 250ms ease-in-out;
 }
+
+#btn-content{
+    margin: 1rem auto;
+    border: 5px solid var(--white);
+    border-radius: 50%;
+    width: 3vw;
+    height: 3vw;
+    transition: border 200ms;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 .output {
     font-weight: bold;
