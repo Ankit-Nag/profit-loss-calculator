@@ -57,7 +57,11 @@ h1 {
 }
 
 input {
+    caret-color: var(--spring-green);
+    color: var(--deep-blue);
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     min-width: 25vw;
     max-width: 30vw;
     border: none;
@@ -76,6 +80,10 @@ input:focus {
     border-radius: 0.25rem;
     box-shadow: 0px 0px 10px var(--darker-green) inset;
     transition: border 250ms, background-color 250ms, box-shadow 250ms ease-in-out;
+}
+
+input:focus::placeholder{
+    color: transparent;
 }
 
 #stock-option {
@@ -138,6 +146,8 @@ option {
 }
 
 .output {
+    font-weight: bold;
+    color: var(--deep-blue);
     background-color: var(--white);
     max-width: 25vw;
     border-bottom: solid 2px var(--deep-blue);

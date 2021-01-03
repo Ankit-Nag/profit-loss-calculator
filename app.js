@@ -37,7 +37,7 @@ function calculate(buyPrice,quantity){
 function outputHandler(difference,totalBuyPrice){
     var percentage = (difference/totalBuyPrice)*100;
     if(difference>0){
-        diffOutput.innerText= difference.toFixed(2) +" Profit";
+        diffOutput.innerText= "$"+difference.toFixed(2) +" Profit";
         percOutput.innerText= percentage.toFixed(2) +"% Profit";
     }
     else if(totalBuyPrice===0){
@@ -46,9 +46,10 @@ function outputHandler(difference,totalBuyPrice){
     }
     else if(difference===0){
         diffOutput.innerText="No profit, no loss";
+        percOutput.innerHTML= "0%";
     }
     else{
-        diffOutput.innerText= Math.abs(difference.toFixed(2)) +" Loss";
+        diffOutput.innerText= "$"+Math.abs(difference.toFixed(2)) +" Loss";
         percOutput.innerText= Math.abs(percentage.toFixed(2)) +"% Loss ";
     }
 }
