@@ -23,9 +23,9 @@
         <img class="img-header" src="/images/finance_analysis_.svg" />
         <h3>Select stock</h3>
         <select name="stock-option" id="stock-option">
-            <option value="amd">Advanced Micro Devices - AMD</option>
-            <option value="intel">Intel - INTC</option>
-            <option value="nvidia">Nvidia - NVDA</option>
+            <option value="AMD">Advanced Micro Devices - AMD</option>
+            <option value="INTC">Intel - INTC</option>
+            <option value="NVDA">Nvidia - NVDA</option>
         </select>
         <h3>Enter buy price</h3>
         <input placeholder="Buy price" type="number" id="input-buyprice" />
@@ -36,14 +36,15 @@
         <button id="btn-check">Check</button>
         <div id="btn-content"></div>
         <hr />
+
         <div id="div-output">
+            <h3>Current Price</h3>
+            <p class="output" id="currentPrice">---</p>
             <h3>Profit/Loss</h3>
             <p class="output" id="difference">---</p>
             <h3>Percentage Profit/Loss</h3>
             <p class="output" id="percentage">---</p>
         </div>
-        
-
 
     </main>
    
