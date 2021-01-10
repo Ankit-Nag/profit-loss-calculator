@@ -17,8 +17,8 @@ var fetcher = document.querySelector("#fetch");
 //1. click event
 function clickEventHandler() {
     load();
-    window.setTimeout(complete, 700);
-    window.setTimeout(start, 750);
+    window.setTimeout(complete, 1000);
+    window.setTimeout(start, 250);
 };
 
 //2. animate the loader
