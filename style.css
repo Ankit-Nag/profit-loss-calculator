@@ -72,7 +72,7 @@ input {
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     min-width: 35vw;
-    max-width: 40vw;
+    max-width: 50vw;
     border: none;
     border-bottom: solid 2px var(--deep-blue);
     border-radius: 0.25rem;
@@ -186,7 +186,7 @@ option {
     text-align: center;
     text-justify: inter-word;
     background-color: var(--white);
-    max-width: 25vw;
+    max-width: 50vw;
     border-bottom: solid 2px var(--deep-blue);
     margin: auto;
     border-radius: 0.25rem;
