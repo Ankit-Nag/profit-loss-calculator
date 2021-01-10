@@ -42,7 +42,6 @@ function start() {
         .then(json => {
             quote = json["Global Quote"];
             stockValue = quote["05. price"];
-            console.log(quote);
         })
         .then(run => {
             calculate(buyPrice.value, quantity.value);
@@ -108,8 +107,14 @@ function outputHandler(difference, totalBuyPrice) {
 //present current stock data
 //!try using innerHTML to style the output
 function stockData(quote) {
-    var str = "Current Price: " + quote["05. price"] + "\n Open: " + quote["02. open"] + "\n High: " + quote["03. high"] + "\n Low: " + quote["04. low"] + "\n Volume: " + quote["06. volume"] + "\n Change: " + quote["09. change"] + "\n Change Percent: " + quote["10. change percent"];
-    console.log(parseFloat(quote["05. price"]).toFixed(2));
+    var str=""
+    if(quote["05. price"]==NaN){
+        str="We check only NASDAQ stocks";
+        console.log("iffing");
+    }
+    else{
+    var str = "Current Price: " + parseFloat(quote["05. price"]).toFixed(2) + "\n Open: " + parseFloat(quote["02. open"]).toFixed(2) + "\n High: " + parseFloat(quote["03. high"]).toFixed(2) + "\n Low: " + parseFloat(quote["04. low"]).toFixed(2) + "\n Volume: " + parseFloat(quote["06. volume"]).toFixed(2) + "\n Change: " + parseFloat(quote["09. change"]).toFixed(2) + "\n Change Percent: " + parseFloat(quote["10. change percent"]).toFixed(2);
+    }
 
     currentPrice.innerText = str;
     // available data in quote[]-

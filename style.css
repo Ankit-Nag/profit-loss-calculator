@@ -175,7 +175,7 @@ option {
 .output {
     font-weight: bold;
     color: var(--deep-blue);
-    text-align: justify;
+    text-align: center;
     text-justify: inter-word;
     background-color: var(--white);
     max-width: 25vw;
