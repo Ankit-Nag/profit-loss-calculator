@@ -1,11 +1,12 @@
 //setup the inputs and outputs
-var buyPrice = document.querySelector("#input-buyprice");
-var quantity = document.querySelector("#input-quantity");
-var btnCheck = document.querySelector("#btn-check");
-var stockName = document.querySelector("#stock-option");
-var diffOutput = document.querySelector("#difference");
-var percOutput = document.querySelector("#percentage");
-var currentData = document.querySelector("#currentPrice");
+
+var buyPrice = document.querySelector("#input-buyprice"); //buy price
+var quantity = document.querySelector("#input-quantity"); //no. of stocks
+var btnCheck = document.querySelector("#btn-check"); //check button
+var stockName = document.querySelector("#stock-option"); //company stock selected
+var diffOutput = document.querySelector("#difference"); //profit/oss
+var percOutput = document.querySelector("#percentage"); //percentage
+var currentData = document.querySelector("#currentPrice"); //API data
 var loading = document.querySelector("#btn-content");
 var apikey = "0QVW1DBC4JJ5LAG7";
 var stockValue = 0,
@@ -84,22 +85,26 @@ function outputHandler(difference, totalBuyPrice) {
         document.querySelector(".body-container").style.backgroundColor = "var(--translucent-green)";
         diffOutput.style.color = "var(--darker-green)";
         percOutput.style.color = "var(--darker-green)";
+        currentData.style.color = "var(--darker-green)";
     } else if (totalBuyPrice === 0) {
         diffOutput.innerHTML = "Enter Buy Price and Quantity";
         percOutput.innerHTML = "Enter Buy Price and Quantity";
         document.querySelector(".body-container").style.backgroundColor = "var(--pastel-blue)";
         diffOutput.style.color = "var(--deep-blue)";
         percOutput.style.color = "var(--deep-blue)";
+        currentData.style.color = "var(--deep-blue)";
     } else if (difference === 0) {
         diffOutput.innerText = "No profit, no loss";
         percOutput.innerHTML = "0%";
         diffOutput.style.color = "var(--deep-blue)";
         percOutput.style.color = "var(--deep-blue)";
+        currentData.style.color = "var(--deep-blue)";
     } else {
         diffOutput.innerText = "$" + Math.abs(difference.toFixed(2)) + " Loss";
         percOutput.innerText = Math.abs(percentage.toFixed(2)) + "% Loss ";
         diffOutput.style.color = "var(--red)";
         percOutput.style.color = "var(--red)";
+        currentData.style.color = "var(--red)";
         document.querySelector(".body-container").style.backgroundColor = "var(--transparent-red)";
     }
 }

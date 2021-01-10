@@ -5,13 +5,14 @@
     --pastel-blue: rgba(0,130,176,0.6);
     --spring-green: #5CDB95;
     --transparent-green: rgba(92, 219, 149, 0.6);
-    --translucent-green: rgba(92, 219, 149, 0.8);
+    --translucent-green: rgba(92, 219, 149, 0.75);
     --darker-green: #379683;
     --lighter-green: #8EE4AF;
     --white: #EDF5E1;
     --red: #FC4445;
     --transparent-red: rgba(252,68,69,0.8);
     --black: #101010;
+    --grey: #222831;
 }
 
 ::placeholder {
@@ -25,15 +26,15 @@ hr {
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background-color: var(--darker-green);
+    background-color: var(--grey);
+    background: linear-gradient(135deg, var(--grey) 0%,var(--black) 100%);
     color: var(--black);
-    background-image: url("/images/stocks-background.jpg");
     background-attachment: fixed;
 }
 
 .img-header{
     padding-top: 1rem;
-    max-width: 30vw;
+    max-width: 25vw;
     text-align: center;
     display: block;
     margin: auto;
@@ -41,21 +42,20 @@ body {
 
 .body-container {
     text-align: center;
-    max-width: 60vw;
-    margin: auto;
-    padding: 1.5rem;
+    max-width: 70vw;
+    margin: 2rem auto;
+    padding: 2rem;
     background-color: var(--transparent-green);
     backdrop-filter: blur(5px);
     border-radius: 1rem;
     box-shadow: 2px 2px 5px var(--black);
-    transition: background-color 300ms, box-shadow 300ms ease-in-out;
-    filter: blur(10);
+    transition: all 250ms ease;
 }
 
 .body-container:hover {
     background-color: var(--translucent-green);
     box-shadow: 5px 5px 10px var(--black);
-    transition: background-color 300ms, box-shadow 300ms ease-in-out;
+    transition: all 250ms ease;
 }
 
 h1 {
@@ -71,14 +71,20 @@ input {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    min-width: 25vw;
-    max-width: 30vw;
+    min-width: 35vw;
+    max-width: 40vw;
     border: none;
     border-bottom: solid 2px var(--deep-blue);
     border-radius: 0.25rem;
     padding: 0.5rem;
+    box-shadow: 0px 1px 2px var(--black);
     background-color: var(--white);
-    transition: border 250ms, background-color 250ms, box-shadow 250ms ease-in-out;
+    transition: all 250ms ease;
+}
+
+input:hover{
+    box-shadow: 0px 2px 3px var(--black);
+    transition: all 250ms ease;
 }
 
 input:focus {
@@ -87,8 +93,8 @@ input:focus {
     border-color: transparent;
     border-bottom: solid 2px var(--pastel-blue);
     border-radius: 0.25rem;
-    box-shadow: 0px 0px 10px var(--darker-green) inset;
-    transition: border 250ms, background-color 250ms, box-shadow 250ms ease-in-out;
+    box-shadow: 0px 3px 5px var(--grey);
+    transition: all 250ms ease;
 }
 
 input:focus::placeholder{
@@ -99,19 +105,21 @@ input:focus::placeholder{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     color: var(--deep-blue);
+    min-width: 35vw;
     max-width: 50vw;
     border: none;
     border-bottom: solid 2px var(--deep-blue);
     border-radius: 0.25rem;
     padding: 0.5rem;
     background-color: var(--white);
-    transition: background-color 250ms, box-shadow 250ms;
+    transition: all 250ms ease;
 }
 
 option {
-    background-color: var(--deep-blue);
+    background-color: var(--grey);
     color: var(--white);
     font-weight: bold;
+    transition: all 250ms ease;
 }
 
 #stock-option:focus {
@@ -120,13 +128,13 @@ option {
     border-color: transparent;
     border-bottom: solid 2px var(--pastel-blue);
     border-radius: 0.25rem;
-    box-shadow: 0px 0px 10px var(--darker-green) inset;
-    transition: background-color 250ms, box-shadow 250ms ease-in-out;
+    box-shadow: 0px 2px 10px var(--grey);
+    transition: all 250ms ease;
 }
 
 #stock-option:hover {
-    box-shadow: 0px 0px 5px var(--darker-green) inset;
-    transition: background-color 250ms, box-shadow 250ms;
+    box-shadow: 0px 2px 5px var(--grey);
+    transition: all 250ms ease;
 }
 
 #btn-check {
@@ -136,26 +144,26 @@ option {
     color: var(--white);
     padding: 0.5rem;
     min-width: 15vw;
-    border: solid 2px var(--black);
+    border: solid 1px var(--black);
     border-radius: 0.5rem;
-    box-shadow: 1px 1px 2px var(--black);
-    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+    box-shadow: 0px 1px 2px var(--black);
+    transition: all 250ms ease;
 }
 
 #btn-check:hover {
-    box-shadow: 2px 2px 5px var(--black);
-    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+    box-shadow: 0px 3px 5px var(--black);
+    transition: all 250ms ease;
 }
 
 #btn-check:focus {
     outline-style: none;
-    box-shadow: 2px 2px 7px var(--black);
-    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+    box-shadow: 0px 1px 3px var(--black);
+    transition: all 250ms ease;
 }
 
 #btn-check:active {
     background-color: var(--pastel-blue);
-    transition: box-shadow 250ms, background-color 250ms ease-in-out;
+    transition: all 250ms ease;
 }
 
 #btn-content{
@@ -164,7 +172,7 @@ option {
     border-radius: 50%;
     width: 3vw;
     height: 3vw;
-    transition: border 200ms;
+    transition: all 250ms ease;
 }
 
 @keyframes spin {
@@ -182,14 +190,14 @@ option {
     border-bottom: solid 2px var(--deep-blue);
     margin: auto;
     border-radius: 0.25rem;
-    box-shadow: 1px 1px 5px var(--black);
+    box-shadow: 0px 1px 5px var(--black);
     padding: 0.5rem;
-    transition: color 250ms, border 250ms, box-shadow 250ms ease-in-out;
+    transition: all 250ms ease;
 }
 
 .output:hover {
     border-bottom: solid 2px var(--pastel-blue);
     border-radius: 0.25rem;
-    box-shadow: 2px 2px 5px var(--black);   
-    transition: color 250ms, border 250ms, box-shadow 250ms ease-in-out;
+    box-shadow: 0px 3px 7px var(--black);   
+    transition: all 250ms ease;
 }
