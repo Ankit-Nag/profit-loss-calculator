@@ -1,46 +1,83 @@
 //setup the inputs and outputs
-//AV API key 0QVW1DBC4JJ5LAG7
 var buyPrice = document.querySelector("#input-buyprice");
 var quantity = document.querySelector("#input-quantity");
 var btnCheck = document.querySelector("#btn-check");
 var stockName = document.querySelector("#stock-option");
 var diffOutput = document.querySelector("#difference");
 var percOutput = document.querySelector("#percentage");
+var currentData = document.querySelector("#currentPrice");
 var loading = document.querySelector("#btn-content");
 var apikey = "0QVW1DBC4JJ5LAG7";
-var stockValue= 0;
+var stockValue = 0,
+    quote;
 var fetcher = document.querySelector("#fetch");
 
-//error handling
-function errorHandler(error) {
-    console.log("Error occured ", error)
-}
 
+//1. click event
+function clickEventHandler() {
+    load();
+    window.setTimeout(complete, 700);
+    window.setTimeout(start, 750);
+};
+
+//2. animate the loader
 function load() {
     loading.style.border = "5px solid var(--white)";
     loading.style.borderTop = "5px solid var(--deep-blue)";
     loading.style.animation = "spin 1s linear infinite";
 }
 
+//3. loading complete
 function complete() {
     loading.style.border = "5px solid var(--white)";
 }
 
-//calculate profit or loss
+//4. start execution by fetch()
+function start() {
+    var url = urlHandler(stockName.value);
+    fetch(url, {
+            "method": "GET"
+        })
+        .then(response => response.json())
+        .then(json => {
+            quote = json["Global Quote"];
+            stockValue = quote["05. price"];
+            console.log(quote);
+        })
+        .then(run => {
+            calculate(buyPrice.value, quantity.value);
+        })
+        .catch(err => {
+            console.error(err);
+        });
+}
+
+//4.1. create the URL
+function urlHandler(index) {
+    var urlgen = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + index + "&apikey=" + apikey;
+    return urlgen
+
+}
+
+//4.2. error handling
+function errorHandler(error) {
+    console.log("Error occured ", error)
+}
+
+//5. calculate profit or loss
 function calculate(buyPrice, quantity) {
     var difference;
     var totalBuyPrice = buyPrice * quantity;
     var currentPrice = stockValue * quantity;
     difference = currentPrice - totalBuyPrice;
-    outputHandler(difference,totalBuyPrice);
+    outputHandler(difference, totalBuyPrice);
 }
 
-function start() {
-    calculate(buyPrice.value, quantity.value)
-}
-
+//6 output
 function outputHandler(difference, totalBuyPrice) {
-    document.querySelector("#currentPrice").innerText=stockValue;
+    // currentData.innerText=stockValue;
+    //show current data on stock-->
+    stockData(quote);
     var percentage = (difference / totalBuyPrice) * 100;
     if (difference > 0) {
         diffOutput.innerText = "$" + difference.toFixed(2) + " Profit";
@@ -68,33 +105,25 @@ function outputHandler(difference, totalBuyPrice) {
     }
 }
 
-function urlHandler(index) {
-    var urlgen = "https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=" + index + "&apikey=" + apikey;
-    return urlgen
-    
-}
+//present current stock data
+//!try using innerHTML to style the output
+function stockData(quote) {
+    var str = "Current Price: " + quote["05. price"] + "\n Open: " + quote["02. open"] + "\n High: " + quote["03. high"] + "\n Low: " + quote["04. low"] + "\n Volume: " + quote["06. volume"] + "\n Change: " + quote["09. change"] + "\n Change Percent: " + quote["10. change percent"];
+    console.log(parseFloat(quote["05. price"]).toFixed(2));
 
-function start() {
-    var url = urlHandler(stockName.value);
-    fetch(url, {
-            "method": "GET"
-        })
-        .then(response => response.json())
-        .then(json => {
-            quote = json["Global Quote"]; 
-            stockValue = quote["05. price"];  
-        })
-        .then(run=>{calculate(buyPrice.value,quantity.value);})
-        .catch(err => {
-            console.error(err);
-        });
-}
+    currentPrice.innerText = str;
+    // available data in quote[]-
+    // "01. symbol":"TSLA"
+    // "02. open":"777.8700"
+    // "03. high":"789.7500"
+    // "04. low":"770.7700"
+    // "05. price":"771.8426"
+    // "06. volume":"6995867"
+    // "07. latest trading day":"2020-02-12"
+    // "08. previous close":"774.3800"
+    // "09. change":"-2.5374"
+    // "10. change percent":"-0.3277%"
 
-//click event
-function clickEventHandler() {
-    load();
-    window.setTimeout(complete, 700);
-    window.setTimeout(start, 750);
-};
+}
 
 btnCheck.addEventListener("click", clickEventHandler);
